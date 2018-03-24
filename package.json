@@ -1,0 +1,16 @@
+{
+  "name": "SebBot",
+  "description": "test",
+  "version": "0.0.0",
+  "main": "bot.js",
+  "scripts": {
+    "start": "node bot.js"
+  },
+  "dependencies": {
+    "discord.js": "11.1.0",
+    "request": "2.81.0",
+    "cheerio": "0.22.0",
+    "dblapi.js": "1.2.1",
+    "html-to-json": "0.6.0"
+  }
+}
