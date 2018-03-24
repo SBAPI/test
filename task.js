@@ -1,6 +1,8 @@
 const request = require('request');
+var Discord = require('discord.js');
+var client = new Discord.Client();
 const USER_AGENT = process.env.USER_AGENT;
-const WEBHOOK_KEY = process.env.WEBHOOK_KEY;
+const BOT_KEY = process.env.BOT_KEY;
 const API_KEY = process.env.API_KEY;
 function doNightlyUpdate(){
   var data = undefined;
@@ -37,21 +39,24 @@ function doNightlyUpdate(){
         inline: true
       }
     ]
+    var _embed = {
+      title: "Nightly Update",
+      color: 3394815,
+      fields: _fields,
+      timestamp: unix
+    }
     var unix = Math.round(+new Date()/1000);
-    request.post('http://service.com/upload', {
-      form: {
-        embeds:[{
-          title: "Nightly Update",
-          color: 3394815,
-          fields: _fields,
-          timestamp: unix
-        }]
-      },
-      headers: {
-        "User-Agent": USER_AGENT
-      }
-    })
+    client.guilds[0].channels.find("name", "news").send({embed: _embed});
   });
 }
-doNightlyUpdate();
-setInterval(doNightlyUpdate, 86400000);
+client.on('ready', () => {
+  ready = 1;
+  var stat = 0;
+  setInterval(function(){
+	  client.user.setPresence({ game: { name: `Sebby's Script Builder`, type: 1 } });
+  },30000)
+  doNightlyUpdate();
+  setInterval(doNightlyUpdate, 86400000);
+}
+// Login
+client.login(BOT_KEY);
