@@ -46,12 +46,12 @@ function doNightlyUpdate(){
   var unix = Math.round(+new Date()/1000);
   request.post('http://service.com/upload', {
     form: {
-      embeds:{{
+      embeds:[{
         title: "Nightly Update",
         color: 3394815,
         fields: _fields,
         timestamp: unix
-      }}
+      }]
     }
   })
 }
