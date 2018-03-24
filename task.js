@@ -5,9 +5,10 @@ const API_KEY = process.env.API_KEY;
 function doNightlyUpdate(){
   var data = undefined;
   request(API_KEY, function(error, response, body){
+    console.log(body);
     data = JSON.parse(body);
   });
-  if (!data){
+  if (data === undefined){
     console.warn("Can not fetch data");
     return;
   }
@@ -52,6 +53,9 @@ function doNightlyUpdate(){
         fields: _fields,
         timestamp: unix
       }]
+    },
+    headers: {
+      "User-Agent": USER_AGENT
     }
   })
 }
