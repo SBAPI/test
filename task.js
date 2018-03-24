@@ -57,6 +57,6 @@ client.on('ready', () => {
   },30000)
   doNightlyUpdate();
   setInterval(doNightlyUpdate, 86400000);
-}
+})
 // Login
 client.login(BOT_KEY);
