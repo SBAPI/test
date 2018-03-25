@@ -63,7 +63,7 @@ client.on('ready', () => {
   var statChannel = client.guilds.get("395371039779192842").channels.find("name", "live-stats")
   statChannel.fetchMessages({ limit: 10 })
   .then(messages => {
-    for (let i = 0; i < messageCount; i++){
+    for (let i = 0; i < messages.length; i++){
       messages[i].delete();
     }
     var stat = null;
