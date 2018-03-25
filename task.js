@@ -82,11 +82,11 @@ client.on('ready', () => {
       var seconds = date.getSeconds();
       var minutes = date.getMinutes();
       var hour = date.getHours();
-      var timeStamp = [
+      var timeStamp = {
         tHour: hour+4,
         tMinute: minutes,
         tSeconds: seconds
-      ]
+      }
       stat.edit({embed:{
 	      title: "Live Stats",
 	      fields: doNightlyUpdate(true),
