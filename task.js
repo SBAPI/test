@@ -7,35 +7,36 @@ const API_KEY = process.env.API_KEY;
 function doNightlyUpdate(){
   var data = undefined;
   request(API_KEY, function(error, response, data){
+    console.log(data);
     var _fields = [
       {
         name: "⭐ Favorites",
-        value: data.FavoritedCount.tostring(),
+        value: data.FavoritedCount,
         inline: true
       },
       {
         name: "👍 Likes",
-        value: data.TotalUpVotes.tostring(),
+        value: data.TotalUpVotes,
         inline: true
       },
       {
         name: "👎 Dislikes",
-        value: data.TotalDownVotes.tostring(),
+        value: data.TotalDownVotes,
         inline: true
       },
       {
         name: "👁️ Plays",
-        value: data.VisitedCount.tostring(),
+        value: data.VisitedCount,
         inline: true
       },
       {
         name: "👨 Online",
-        value: data.OnlineCount.tostring(),
+        value: data.OnlineCount,
         inline: true
       },
       {
         name: "⬆️ Last Updated",
-        value: data.Updated.tostring(),
+        value: data.Updated,
         inline: true
       }
     ]
