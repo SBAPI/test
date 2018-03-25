@@ -103,10 +103,8 @@ client.on('message', message => {try{
     var match = cmd.match(/\<\@\!\w+\>/)[0];
     var userId = match.substr(2, match.length-3);
     if (userId.includes("!")){
-      console.log("Irregular operation");
       userId = match.substr(3, match.length-4);
     }
-    console.log(userId, match);
     var reason = cmd.substr(userId.length+10);
     message.member.guild.members.find("id", userId).send({embed:{
 	    title: "Mod Application",
