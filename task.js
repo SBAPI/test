@@ -101,12 +101,11 @@ client.on('message', message => {try{
     var cmd = message.content
     console.log(cmd)
     var match = cmd.match(/\<\@\!\w+\>/);
-    if (match == null){
-      match = cmd.match(/\<\@\w+\>/);
-      console.log('invalid user type');
+    var userId = match.substr(2, match.length-3);
+    if (userId.substr(0,0) == "!"){
+      userId = match.substr(3, match.length-3);
     }
     match = match[0];
-    var userId = match.substr(2, match.length-3);
     var reason = cmd.substr(userId.length+10);
     message.member.guild.members.find("id", userId).send({embed:{
 	    title: "Mod Application",
