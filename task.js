@@ -7,7 +7,7 @@ const API_KEY = process.env.API_KEY;
 function doNightlyUpdate(){
   var data = undefined;
   request(API_KEY, function(error, response, body){
-    var data = body[0]
+    var data = JSON.decode(body)[0]
     var _fields = [
       {
         name: "⭐ Favorites",
