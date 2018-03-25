@@ -74,7 +74,7 @@ client.on('ready', () => {
 		    text: "Updates every 5 seconds"
 	    }
     }})
-    .then(msg => { stat = msg; });
+    .then(msg => { msg.react("🇨"); msg.react("🇴"); msg.react("⭕"); msg.react("🇱"); stat = msg; });
     setInterval(function(){
       var date = new Date;
       var seconds = date.getSeconds();
