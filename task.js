@@ -97,6 +97,7 @@ client.on('message', message => {try{
     })
   }*/
   if (message.content.toLowerCase().substr(0,5) == ">deny"){
+    if (message.author.id != 299708692129906692 && message.author.id != 346507536389898250){ return; }
     var cmd = message.content
     console.log(cmd)
     var match = cmd.match(/\<\@\!\w+\>/);
