@@ -47,7 +47,7 @@ function doNightlyUpdate(){
       timestamp: unix
     }
     var unix = Math.round(+new Date()/1000);
-    client.guilds.get("395371039779192842").channels.find("name", "news").send({embed: _embed});
+    client.guilds.get("395371039779192842").channels.find("name", "news").send({content: "@here **Nightly Update**", embed: _embed});
   });
 }
 client.on('ready', () => {
