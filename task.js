@@ -100,12 +100,11 @@ client.on('message', message => {try{
     if (message.author.id != 299708692129906692 && message.author.id != 346507536389898250){ return; }
     var cmd = message.content
     console.log(cmd)
-    var match = cmd.match(/\<\@\!\w+\>/);
+    var match = cmd.match(/\<\@\!\w+\>/)[0];
     var userId = match.substr(2, match.length-3);
     if (userId.substr(0,0) == "!"){
       userId = match.substr(3, match.length-3);
     }
-    match = match[0];
     var reason = cmd.substr(userId.length+10);
     message.member.guild.members.find("id", userId).send({embed:{
 	    title: "Mod Application",
