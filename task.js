@@ -106,7 +106,7 @@ client.on('message', message => {try{
     match = match[0];
     var userId = match.substr(2, match.length-3);
     var reason = cmd.substr(userId.length+10);
-    message.member.guild.members.get("id", userId).send({embed:{
+    message.member.guild.members.find("id", userId).send({embed:{
 	    title: "Mod Application",
 	    description: "Your mod application has been denied. Reason:\n```"+reason+"```",
 	    color: 13632027
