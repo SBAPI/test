@@ -104,7 +104,7 @@ client.on('message', message => {try{
     var userId = match.substr(2, match.length-3);
     if (userId.includes("!")){
       console.log("Irregular operation");
-      userId = match.substr(3, match.length-3);
+      userId = match.substr(3, match.length-4);
     }
     console.log(userId, match);
     var reason = cmd.substr(userId.length+10);
