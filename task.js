@@ -100,7 +100,10 @@ client.on('message', message => {try{
     if (message.author.id != 299708692129906692 && message.author.id != 346507536389898250){ return; }
     var cmd = message.content
     console.log(cmd)
-    var match = cmd.match(/\<\@\!\w+\>/)[0];
+    var match = cmd.match(/\<\@\!\w+\>/);
+    if (match == null){
+      match = cmd.match(/\<\@\w+\>/);
+    }
     var userId = match.substr(2, match.length-3);
     if (userId.includes("!")){
       userId = match.substr(3, match.length-4);
