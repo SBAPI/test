@@ -64,10 +64,11 @@ client.on('message', message => {try{
     message.reply(`
 **Help**:
 *>getscore*: __Gets your all time point balance__
+*>ssbinfo*: __Coming soon__
     `);
   }
   if (message.content.toLowerCase() == ">getscore"){
-    var match = message.channel.server.detailsOf(message.author).nick.match(/\(\w+\)/)[0]
+    var match = message.author.nickname.match(/\(\w+\)/)[0]
     var user = match.substr(1, match.length-2)
     if (!user){
       message.reply("You must be verifyed to use this command. Say `!verify` in <#402320341654962176> to use this command.");
@@ -84,6 +85,3 @@ client.on('message', message => {try{
 }catch(err){console.log(err.message)}})
 // Login
 client.login(BOT_KEY);
-setInterval(function(){
-  client.login(BOT_KEY);
-}, 100000);
