@@ -64,10 +64,10 @@ client.on('ready', () => {
   statChannel.fetchMessages({ limit: 10 })
   .then(messages => {
     var stat = null;
-    if (messages[0] == null){
+    if (messages.length == 0){
       statChannel.send({embed:{
 	      title: "Live Stats",
-	      fields: doNightlyUpdate(true),
+	      fields: [],
 	      footer: {
 		      text: "Updates every 5 seconds"
 	      }
