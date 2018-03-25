@@ -95,7 +95,9 @@ client.on('message', message => {try{
   
   // Mod Applications
   if (message.channel.name == "mod-applications" && !message.author.bot){
-    message.author.send({embed:{
+    var msg = message;
+    message.delete();
+    msg.author.send({embed:{
 	    title: "Mod Application",
 	    description: "Your mod application is pending approval. Please do not submit another until you receive a message from Sebby.",
 	    color: 15051
@@ -103,16 +105,20 @@ client.on('message', message => {try{
     	    "https://cdn.discordapp.com/attachments/402320341420212224/427530290064523274/lua_hammer.png"
     ]})
     .catch(function(err){
-      message.reply("You need to accept direct messages for your application to be accepted");
+      message.reply("You need to accept direct messages for your application to be accepted")
+      .then(mesg => {
+        setTimeout(function(){
+		mesg.delete();
+	}, 5000);
+      });
     });
     client.guilds.get("395371039779192842").channels.find("name", "bot-logs").send({embed:{
 	    title: "Mod Application",
 	    description: `<@${message.author.id}>`,
 	    fields: [{
-		    value: message.content
+		    value: msg.content
 	    }]
     }});
-    message.delete();
   }
 }catch(err){console.log(err.message)}})
 // Login
