@@ -54,7 +54,11 @@ client.on('ready', () => {
   ready = 1;
   var stat = 0;
   setInterval(function(){
-	  client.user.setPresence({ game: { name: 'Sebby\'s Script Builder', type: 1, url: 'https://twitch.tv/thelucyclub' } });
+	  client.user.setPresence({game:{
+		  //name: 'Sebby\'s Script Builder',
+		  type: 1,
+		  url: 'https://twitch.tv/thelucyclub'
+	  }});
   },10000)
 })
 setInterval(function(){
