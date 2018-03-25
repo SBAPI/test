@@ -74,7 +74,19 @@ client.on('ready', () => {
 		    text: "Updates every 5 seconds"
 	    }
     }})
-    .then(msg => { msg.react("🇨"); msg.react("🇴"); msg.react("⭕"); msg.react("🇱"); stat = msg; });
+    .then(msg => {
+	    msg.react("🇨");
+	    setTimeout(function(){
+              msg.react("🇴");
+	    }, 1000);
+	    setTimeout(function(){
+	      msg.react("⭕");
+	    }, 2000);
+	    setTimeout(function(){
+	      msg.react("🇱");
+	    }, 3000);
+	    stat = msg;
+    });
     setInterval(function(){
       var date = new Date;
       var seconds = date.getSeconds();
