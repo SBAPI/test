@@ -4,7 +4,7 @@ var client = new Discord.Client();
 const USER_AGENT = process.env.USER_AGENT;
 const BOT_KEY = process.env.BOT_KEY;
 const API_KEY = process.env.API_KEY;
-function doNightlyUpdate(){
+function doNightlyUpdate(skap){
   var data = undefined;
   request(API_KEY, function(error, response, body){
     var data = JSON.parse(body)
@@ -40,6 +40,7 @@ function doNightlyUpdate(){
         inline: true
       }
     ]
+    if (skap){ return _fields; }
     var _embed = {
       title: "Nightly Update",
       color: 3394815,
@@ -60,6 +61,41 @@ client.on('ready', () => {
 		  url: 'https://twitch.tv/thelucyclub'
 	  }});
   },10000)
+  var statChannel = client.guilds.get("395371039779192842").channels.find("name", "live-stats")
+  statChannel.fetchMessages({ limit: 10 })
+  .then(messages => {
+    var stat = null;
+    if (messages.length < 1){
+      statChannel.send({embed:{
+	      title: "Live Stats",
+	      fields: doNightlyUpdate(true),
+	      footer: {
+		      text: "Updates every 5 seconds"
+	      }
+      }})
+      .then(msg => { stat = msg; });
+    } else {
+      stat = messages[0];
+    }
+    setInterval(function(){
+      var date = new Date;
+      var seconds = date.getSeconds();
+      var minutes = date.getMinutes();
+      var hour = date.getHours();
+      var timeStamp = [
+        tHour: hour+4,
+        tMinute: minutes,
+        tSeconds: seconds
+      ]
+      stat.edit({embed:{
+	      title: "Live Stats",
+	      fields: doNightlyUpdate(true),
+	      footer: {
+		      text: "Last updated at "+timeStamp.tHour+":"+timeStamp.tMinute+":"+timeStamp.tSeconds+" EST"
+	      }
+      }});
+    }, 5000);
+  });
 })
 setInterval(function(){
     var date = new Date;
