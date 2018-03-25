@@ -67,7 +67,7 @@ client.on('message', message => {try{
     `);
   }
   if (message.content.toLowerCase() == ">getscore"){
-    var match = message.author.username.match(/\(\w+\)/)[0]
+    var match = message.channel.server.detailsOf(message.author).nick.match(/\(\w+\)/)[0]
     var user = match.substr(1, match.length-2)
     if (!user){
       message.reply("You must be verifyed to use this command. Say `!verify` in <#402320341654962176> to use this command.");
