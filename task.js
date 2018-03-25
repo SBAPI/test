@@ -94,7 +94,7 @@ client.on('message', message => {try{
   }*/
   
   // Mod Applications
-  if (message.channel.name == "mod-applications"){
+  if (message.channel.name == "mod-applications" && !message.author.bot){
     message.author.send({embed:{
 	    title: "Mod Application",
 	    description: "Your mod application is pending approval. Please do not submit another until you receive a message from Sebby.",
