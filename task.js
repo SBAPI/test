@@ -128,6 +128,7 @@ client.on('message', message => {try{
   }
   if (message.channel.name == "script-dumps" && !message.author.bot){
     var attachments = message.attachments;
+    console.log(attachments);
     if (attachments.length < 0){
       message.reply("No attached files")
       .then(mesg => {
