@@ -54,20 +54,30 @@ client.on('ready', () => {
   ready = 1;
   var stat = 0;
   setInterval(function(){
-	  client.user.setPresence({ game: { name: `>help`, type: 2 } });
+	  client.user.setPresence({ game: { name: 'Sebby\'s Script Builder', type: 1, url: 'https://twitch.tv/thelucyclub' } });
   },10000)
-  doNightlyUpdate();
-  setInterval(doNightlyUpdate, 86400000);
 })
+setInterval(function(){
+    var date = new Date;
+    var seconds = date.getSeconds();
+    var minutes = date.getMinutes();
+    var hour = date.getHours();
+    date = new Date;
+    if (hour == 20 && minutes == 0 && seconds == 0){
+        doNightlyUpdate();
+        console.log("update");
+    }
+}, 1000);
 client.on('message', message => {try{
+  // Commands
   if (message.content.toLowerCase() == ">help"){
     message.reply(`
 **Help**:
-*>getscore*: __Gets your all time point balance__
+*>getscore*: (BROKEN) __Gets your all time point balance__
 *>ssbinfo*: __Coming soon__
     `);
   }
-  if (message.content.toLowerCase() == ">getscore"){
+  /*if (message.content.toLowerCase() == ">getscore"){
     var match = message.author.nickname.match(/\(\w+\)/)[0]
     var user = match.substr(1, match.length-2)
     if (!user){
@@ -81,6 +91,21 @@ client.on('message', message => {try{
     request("https://points.roblox.com/v1/universes/556272591/users/"+userId+"/all-time", function(error, response, body){
       message.reply("Your all time points: `"+JSON.parse(body).allTimeScore+"`");
     })
+  }*/
+  
+  // Mod Applications
+  if (message.channel.name == "mod-applications"){
+    message.author.send({embed:{
+	    title: "Mod Application",
+	    description: "Your mod application is pending approval. Please do not submit another until you receive a message from Sebby.",
+	    color: 15051
+    },files:[
+    	    "https://cdn.discordapp.com/attachments/402320341420212224/427530290064523274/lua_hammer.png"
+    ]})
+    .catch(function(err){
+      message.reply("You need to accept direct messages for your application to be accepted");
+    })
+    message.delete();
   }
 }catch(err){console.log(err.message)}})
 // Login
