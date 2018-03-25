@@ -104,7 +104,14 @@ client.on('message', message => {try{
     ]})
     .catch(function(err){
       message.reply("You need to accept direct messages for your application to be accepted");
-    })
+    });
+    client.guilds.get("395371039779192842").channels.find("name", "bot-logs").send({embed:{
+	    title: "Mod Application",
+	    description: `<@${message.author.id}>`,
+	    fields: [{
+		    value: message.content
+	    }]
+    }});
     message.delete();
   }
 }catch(err){console.log(err.message)}})
