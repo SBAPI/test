@@ -98,6 +98,7 @@ client.on('message', message => {try{
   }*/
   if (message.content.toLowerCase().substr(0,5) == ">deny"){
     var cmd = message.content
+    console.log(cmd)
     var match = cmd.match(/\<\@\w+\>/)[0];
     var userId = match.substr(2, match.length-3);
     var reason = cmd.substr(userId.length+10);
