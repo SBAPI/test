@@ -67,7 +67,7 @@ setInterval(function(){
     var minutes = date.getMinutes();
     var hour = date.getHours();
     date = new Date;
-    if (hour == 20 && minutes == 0 && seconds == 0){
+    if (hour == 24 && minutes == 0 && seconds == 0){
         doNightlyUpdate();
         console.log("update");
     }
