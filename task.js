@@ -135,7 +135,7 @@ setInterval(function(){
     var date = new Date;
     var seconds = date.getSeconds();
     var minutes = date.getMinutes();
-    var hour = date.getHours();
+    var hour = date.getHours()+4;
     date = new Date;
     if (hour == 24 && minutes == 0 && seconds == 0){
         doNightlyUpdate();
