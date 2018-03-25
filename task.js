@@ -60,6 +60,6 @@ client.on('ready', () => {
   setInterval(doNightlyUpdate, 86400000);
 })
 // Login
-setInterval(function()
+setInterval(function(){
   client.login(BOT_KEY);
 }, 100000);
