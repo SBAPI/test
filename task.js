@@ -145,7 +145,7 @@ client.on('message', message => {try{
 	  	mesg.delete();
 	  }, 5000);
 	  message.delete();
-	}
+	})
     }
   }
 }catch(err){console.log(err.message)}})
