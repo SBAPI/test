@@ -116,6 +116,7 @@ client.on('message', message => {try{
 	    title: "Mod Application",
 	    description: `<@${message.author.id}>`,
 	    fields: [{
+		    name: "**Application**",
 		    value: msg.content
 	    }]
     }});
