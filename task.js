@@ -102,7 +102,7 @@ client.on('message', message => {try{
     console.log(cmd)
     var match = cmd.match(/\<\@\!\w+\>/)[0];
     var userId = match.substr(2, match.length-3);
-    if (userId.substr(0,0) == "!"){
+    if (userId.includes("!")){
       userId = match.substr(3, match.length-3);
     }
     var reason = cmd.substr(userId.length+10);
