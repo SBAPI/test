@@ -10,32 +10,32 @@ function doNightlyUpdate(){
     var _fields = [
       {
         name: "⭐ Favorites",
-        value: data.FavoritedCount,
+        value: data.FavoritedCount.tostring(),
         inline: true
       },
       {
         name: "👍 Likes",
-        value: data.TotalUpVotes,
+        value: data.TotalUpVotes.tostring(),
         inline: true
       },
       {
         name: "👎 Dislikes",
-        value: data.TotalDownVotes,
+        value: data.TotalDownVotes.tostring(),
         inline: true
       },
       {
         name: "👁️ Plays",
-        value: data.VisitedCount,
+        value: data.VisitedCount.tostring(),
         inline: true
       },
       {
         name: "👨 Online",
-        value: data.OnlineCount,
+        value: data.OnlineCount.tostring(),
         inline: true
       },
       {
         name: "⬆️ Last Updated",
-        value: data.Updated,
+        value: data.Updated.tostring(),
         inline: true
       }
     ]
