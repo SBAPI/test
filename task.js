@@ -104,6 +104,7 @@ client.on('message', message => {try{
     if (match == null){
       match = cmd.match(/\<\@\w+\>/);
     }
+    match = match[0];
     var userId = match.substr(2, match.length-3);
     if (userId.includes("!")){
       userId = match.substr(3, match.length-4);
