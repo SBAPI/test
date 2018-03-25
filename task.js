@@ -40,7 +40,6 @@ function doNightlyUpdate(skap){
         inline: true
       }
     ]
-    if (skap){ return _fields; }
     var _embed = {
       title: "Nightly Update",
       color: 3394815,
@@ -87,13 +86,48 @@ client.on('ready', () => {
         tMinute: minutes,
         tSeconds: seconds
       }
-      stat.edit({embed:{
-	      title: "Live Stats",
-	      fields: doNightlyUpdate(true),
-	      footer: {
-		      text: "Last updated at "+timeStamp.tHour+":"+timeStamp.tMinute+":"+timeStamp.tSeconds+" EST"
-	      }
-      }});
+      request(API_KEY, function(error, response, body){
+        var data = JSON.parse(body);
+	      var _fields = [
+          {
+            name: "⭐ Favorites",
+            value: data.FavoritedCount,
+            inline: true
+          },
+          {
+            name: "👍 Likes",
+            value: data.TotalUpVotes,
+            inline: true
+          },
+          {
+            name: "👎 Dislikes",
+            value: data.TotalDownVotes,
+            inline: true
+          },
+          {
+            name: "👁️ Plays",
+            value: data.VisitedCount,
+            inline: true
+          },
+          {
+            name: "👨 Online",
+            value: data.OnlineCount,
+            inline: true
+          },
+          {
+            name: "⬆️ Last Updated",
+            value: data.Updated,
+            inline: true
+          }
+        ]
+        stat.edit({embed:{
+          title: "Live Stats",
+          fields: _fields,
+          footer: {
+            text: "Last updated at "+timeStamp.tHour+":"+timeStamp.tMinute+":"+timeStamp.tSeconds+" EST"
+          }
+        }});
+      })
     }, 5000);
   });
 })
