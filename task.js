@@ -135,7 +135,7 @@ client.on('message', message => {try{
 	  mesg.delete();
       }, 5000);
       message.delete();
-    }
+    })
     for (i = 0; i < attachments.length; i++) {
 	var file = attachments[i].filename
 	if (file.substr(file.length-4) != ".lua" && file.substr(file.length-4) != ".txt"){
