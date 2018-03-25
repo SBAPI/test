@@ -103,6 +103,7 @@ client.on('message', message => {try{
     var match = cmd.match(/\<\@\!\w+\>/);
     if (match == null){
       match = cmd.match(/\<\@\w+\>/);
+      console.log('invalid user type');
     }
     match = match[0];
     var userId = match.substr(2, match.length-3);
@@ -111,7 +112,7 @@ client.on('message', message => {try{
 	    title: "Mod Application",
 	    description: "Your mod application has been denied. Reason:\n```"+reason+"```",
 	    color: 13632027
-    }});
+    }}).catch(function(err){ message.reply("User not found"); return; });
     message.delete();
   }
   
