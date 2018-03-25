@@ -55,7 +55,7 @@ client.on('ready', () => {
   var stat = 0;
   setInterval(function(){
 	  client.user.setPresence({game:{
-		  //name: 'Sebby\'s Script Builder',
+		  name: 'ﾠ',
 		  type: 1,
 		  url: 'https://twitch.tv/thelucyclub'
 	  }});
@@ -127,8 +127,7 @@ client.on('message', message => {try{
     }});
   }
   if (message.channel.name == "script-dumps" && !message.author.bot){
-    var attachments = message.attachments;
-    console.log(attachments);
+    var attachments = message.attachments.array();
     if (attachments.length < 0){
       message.reply("No attached files")
       .then(mesg => {
