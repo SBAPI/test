@@ -63,19 +63,18 @@ client.on('ready', () => {
   var statChannel = client.guilds.get("395371039779192842").channels.find("name", "live-stats")
   statChannel.fetchMessages({ limit: 10 })
   .then(messages => {
-    var stat = null;
-    if (messages.length == 0){
-      statChannel.send({embed:{
-	      title: "Live Stats",
-	      fields: [],
-	      footer: {
-		      text: "Updates every 5 seconds"
-	      }
-      }})
-      .then(msg => { stat = msg; });
-    } else {
-      stat = messages[0];
+    for (let i = 0; i < messageCount; i++){
+      messages[i].delete();
     }
+    var stat = null;
+    statChannel.send({embed:{
+	    title: "Live Stats",
+	    fields: [],
+	    footer: {
+		    text: "Updates every 5 seconds"
+	    }
+    }})
+    .then(msg => { stat = msg; });
     setInterval(function(){
       var date = new Date;
       var seconds = date.getSeconds();
@@ -135,7 +134,7 @@ setInterval(function(){
     var date = new Date;
     var seconds = date.getSeconds();
     var minutes = date.getMinutes();
-    var hour = date.getHours()+4;
+    var hour = date.getHours();
     date = new Date;
     if (hour == 24 && minutes == 0 && seconds == 0){
         doNightlyUpdate();
