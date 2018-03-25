@@ -131,21 +131,23 @@ client.on('message', message => {try{
     if (attachments.length < 0){
       message.reply("No attached files")
       .then(mesg => {
-      setTimeout(function(){
-	  mesg.delete();
-      }, 5000);
+        setTimeout(function(){
+	    mesg.delete();
+        }, 5000);
+      });
       message.delete();
-    })
+    }
     for (i = 0; i < attachments.length; i++) {
 	var file = attachments[i].filename
 	if (file.substr(file.length-4) != ".lua" && file.substr(file.length-4) != ".txt"){
 	  message.reply("Uploaded file must be a `.txt` or `.lua` file.")
 	  .then(mesg => {
-          setTimeout(function(){
-	  	mesg.delete();
-	  }, 5000);
+            setTimeout(function(){
+	    	mesg.delete();
+	    }, 5000);
+	  });
 	  message.delete();
-	})
+	}
     }
   }
 }catch(err){console.log(err.message)}})
