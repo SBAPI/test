@@ -118,7 +118,7 @@ client.on('message', message => {try{
 	    color: 15051,
 	    fields: [{
 		    name: "**Application**",
-		    value: "```\m"+msg.content+"\n```"
+		    value: "```\n"+msg.content+"\n```"
 	    }]
     }});
   }
