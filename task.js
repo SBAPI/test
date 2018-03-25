@@ -65,7 +65,7 @@ client.on('ready', () => {
   statChannel.fetchMessages({ limit: 10 })
   .then(messages => {
     var stat = null;
-    if (messages.length < 1){
+    if (messages[0] == null){
       statChannel.send({embed:{
 	      title: "Live Stats",
 	      fields: doNightlyUpdate(true),
