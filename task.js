@@ -115,9 +115,10 @@ client.on('message', message => {try{
     client.guilds.get("395371039779192842").channels.find("name", "bot-logs").send({embed:{
 	    title: "Mod Application",
 	    description: `<@${message.author.id}>`,
+	    color: 15051,
 	    fields: [{
 		    name: "**Application**",
-		    value: msg.content
+		    value: "```\m"+msg.content+"\n```"
 	    }]
     }});
   }
