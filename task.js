@@ -55,9 +55,11 @@ client.on('ready', () => {
   var stat = 0;
   setInterval(function(){
 	  client.user.setPresence({ game: { name: `Sebby's Script Builder`, type: 1 } });
-  },30000)
+  },10000)
   doNightlyUpdate();
   setInterval(doNightlyUpdate, 86400000);
 })
 // Login
-client.login(BOT_KEY);
+setInterval(function()
+  client.login(BOT_KEY);
+}, 100000);
