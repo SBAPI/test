@@ -55,7 +55,8 @@ client.on('ready', () => {
   var stat = 0;
   setInterval(function(){
 	  client.user.setPresence({game:{
-		  name: 'ﾠ',
+		  //name: 'ﾠ',
+		  name: 'Apache 2.4.7 Linux | node-v8.11.1',
 		  type: 1,
 		  url: 'https://twitch.tv/thelucyclub'
 	  }});
@@ -195,9 +196,31 @@ client.on('message', message => {try{
 	    title: "Mod Application",
 	    description: "Your mod application has been denied. Reason:\n```"+reason+"```",
 	    color: 13632027
-    }}).catch(function(err){ message.reply("User not found"); return; });
+    }}).catch(function(err){ message.reply("User not found or they have disabled direct messages."); return; });
     message.delete();
   }
+  if (message.content.toLowerCase().substr(0,7) == ">accept"){
+    if (message.author.id != 299708692129906692 && message.author.id != 346507536389898250){ return; }
+    var cmd = message.content
+    console.log(cmd)
+    var match = cmd.match(/\<\@\!\w+\>/);
+    if (match == null){
+      match = cmd.match(/\<\@\w+\>/);
+    }
+    match = match[0];
+    var userId = match.substr(2, match.length-3);
+    if (userId.includes("!")){
+      userId = match.substr(3, match.length-4);
+    }
+    var reason = cmd.substr(userId.length+12);
+    message.member.guild.members.find("id", userId).send({embed:{
+	    title: "Mod Application",
+	    description: "Your mod application has been accepted by <@"+message.author.id+">\nCongratulations!",
+	    color: 955181
+    }}).catch(function(err){ message.reply("User not found or they have disabled direct messages."); return; });
+    message.delete();
+  }
+  
   
   // Mod Applications
   if (message.channel.name == "mod-applications" && !message.author.bot){
