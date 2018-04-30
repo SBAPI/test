@@ -232,16 +232,18 @@ client.on('message', message => {try{
 	    color: 15051
     },files:[
     	    "https://cdn.discordapp.com/attachments/402320341420212224/427530290064523274/lua_hammer.png"
-    ]})
-    .catch(message.reply);
+    ]}).catch(console.error);
     // Message Sebby & House the application
     var embed = {embed:{
 	    title: "Mod Application",
-	    description: `<@${message.author.id}>`,
+	    description: `Submitted by <@${message.author.id}>`,
 	    color: 15051,
 	    fields: [{
 		    name: "**Application**",
 		    value: "```\n"+msg.content+"\n```"
+	    }, {
+		    name: "**Accept/Deny**",
+		    value: "Please run `>deny @"+message.author.username+"`, or `>accept "+message.author.username+"`"
 	    }]
     }}
     client.guilds.get("395371039779192842").members.find("id", "299708692129906692").send(embed).catch(console.error);
@@ -250,7 +252,7 @@ client.on('message', message => {try{
   if (message.channel.name == "script-dumps" && !message.author.bot){
     var attachments = message.attachments.array();
     if (attachments.length < 1){
-      message.reply("No attached files")
+      message.reply("Please attach a .txt or .lua file")
       .then(mesg => {
         setTimeout(function(){
 	    mesg.delete();
