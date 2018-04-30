@@ -231,7 +231,7 @@ client.on('message', message => {try{
 	    description: "Your mod application is pending approval. Please do not submit another until you receive a message from Sebby.",
 	    color: 15051
     },files:[
-    	    "https://cdn.discordapp.com/attachments/402320341420212224/427530290064523274/lua_hammer.png"
+    	    "https://i.imgur.com/sOT5keR.png"
     ]}).catch(console.error);
     // Message Sebby & House the application
     var embed = {embed:{
@@ -242,8 +242,8 @@ client.on('message', message => {try{
 		    name: "**Application**",
 		    value: "```\n"+msg.content+"\n```"
 	    }, {
-		    name: "**Accept/Deny**",
-		    value: "Please run `>deny @"+message.author.username+"`, or `>accept "+message.author.username+"`"
+		    name: "**Accept / Deny**",
+		    value: "Please run `>deny @"+message.author.username+"`, or `>accept "+message.author.username+"` in Hebby"
 	    }]
     }}
     client.guilds.get("395371039779192842").members.find("id", "299708692129906692").send(embed).catch(console.error);
