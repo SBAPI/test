@@ -149,7 +149,7 @@ setInterval(function(){
     var minutes = date.getMinutes();
     var hour = date.getHours();
     date = new Date;
-    if (hour == 24 && minutes == 0 && seconds == 0){
+    if (hour == 20 && minutes == 0 && seconds == 0){
         doNightlyUpdate();
         console.log("update");
     }
@@ -233,15 +233,9 @@ client.on('message', message => {try{
     },files:[
     	    "https://cdn.discordapp.com/attachments/402320341420212224/427530290064523274/lua_hammer.png"
     ]})
-    .catch(function(err){
-      message.reply("You need to accept direct messages for your application to be accepted")
-      .then(mesg => {
-        setTimeout(function(){
-		mesg.delete();
-	}, 5000);
-      });
-    });
-    client.guilds.get("395371039779192842").channels.find("name", "bot-logs").send({embed:{
+    .catch(message.reply);
+    // Message Sebby & House the application
+    var embed = {embed:{
 	    title: "Mod Application",
 	    description: `<@${message.author.id}>`,
 	    color: 15051,
@@ -249,7 +243,9 @@ client.on('message', message => {try{
 		    name: "**Application**",
 		    value: "```\n"+msg.content+"\n```"
 	    }]
-    }});
+    }}
+    client.guilds.get("395371039779192842").members.find("id", "299708692129906692").send(embed).catch(console.error);
+    client.guilds.get("395371039779192842").members.find("id", "346507536389898250").send(embed).catch(console.error);
   }
   if (message.channel.name == "script-dumps" && !message.author.bot){
     var attachments = message.attachments.array();
