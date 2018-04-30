@@ -228,7 +228,7 @@ client.on('message', message => {try{
     message.delete();
     msg.author.send({embed:{
 	    title: "Mod Application",
-	    description: "Your mod application is pending approval. Please do not submit another until you receive a message from Sebby.",
+	    description: "Your mod application is pending approval. Please do not submit another until you receive a message from Sebby or House.\n**DO NOT LEAVE HEBBY OR DISABLE DIRECT MESSAGES OR YOU WILL NOT BE ACCEPTED**",
 	    color: 15051
     },files:[
     	    "https://i.imgur.com/sOT5keR.png"
