@@ -1,3 +1,6 @@
+var tos = `
+Error: The TOS file for this guild is corrupted and cannot be read from
+`
 const request = require('request');
 var Discord = require('discord.js');
 var client = new Discord.Client();
@@ -162,6 +165,9 @@ client.on('message', message => {try{
 *>getscore*: (BROKEN) __Gets your all time point balance__
 *>ssbinfo*: __Coming soon__
     `);
+  }
+  if (message.content.toLowerCase() == ">tos"){
+	message.reply("```yaml\n"+tos+"\n```");
   }
   /*if (message.content.toLowerCase() == ">getscore"){
     var match = message.author.nickname.match(/\(\w+\)/)[0]
