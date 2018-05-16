@@ -243,7 +243,7 @@ client.on('message', message => {try{
 		    value: "```\n"+msg.content+"\n```"
 	    }, {
 		    name: "**Accept / Deny**",
-		    value: "Please run `>deny @"+message.author.username+"`, or `>accept "+message.author.username+"` in Hebby"
+		    value: "Please run `>deny @"+message.author.username+"`, or `>accept @"+message.author.username+"` in Hebby"
 	    }]
     }}
     client.guilds.get("395371039779192842").members.find("id", "299708692129906692").send(embed).catch(console.error);
@@ -274,5 +274,13 @@ client.on('message', message => {try{
     }
   }
 }catch(err){console.log(err.message)}})
+client.on('guildMemberAdd', member => {
+  member.send({embed:{
+	  title: "Mod Application",
+	  description: `Welcome to Hebby, i'm SSB Manager, created by Sebby#0426 for the Hebby discord.
+If you wish to apply for a mod application, send a message in the #mod-applications channel of Hebby.
+Please run the command `+"`>tos`"+` for the full Terms of Service.`,
+	  color: 15051
+  });
 // Login
 client.login(BOT_KEY);
