@@ -288,4 +288,4 @@ client.on('guildMemberAdd', member => {
 	  color: 15051
   }}).catch();
 // Login
-client.login(BOT_KEY);
+client.login(BOT_KEY)
