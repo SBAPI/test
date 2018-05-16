@@ -283,9 +283,7 @@ client.on('message', message => {try{
 client.on('guildMemberAdd', member => {
   member.send({embed:{
 	  title: "Mod Application",
-	  description: `Welcome to Hebby, i'm SSB Manager, created by Sebby#0426 for the Hebby discord.
-If you wish to apply for a mod application, send a message in the #mod-applications channel of Hebby.
-Please run the command `+"`>tos`"+` for the full Terms of Service.`,
+	  description: `Welcome to Hebby, I'm SSB Manager, created by Sebby#0426 for the Hebby discord.\nIf you wish to apply for a mod application, send a message in the #mod-applications channel of Hebby.\nPlease run the command ` + "`>tos`" + ` for the full Terms of Service.`,
 	  color: 15051
   });
 // Login
