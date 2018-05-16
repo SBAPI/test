@@ -164,6 +164,7 @@ client.on('message', message => {try{
 **Help**:
 *>getscore*: (BROKEN) __Gets your all time point balance__
 *>ssbinfo*: __Coming soon__
+*>tos*: __Read the Terms of Service for SSB__
     `);
   }
   if (message.content.toLowerCase() == ">tos"){
@@ -234,7 +235,7 @@ client.on('message', message => {try{
     message.delete();
     msg.author.send({embed:{
 	    title: "Mod Application",
-	    description: "Your mod application is pending approval. Please do not submit another until you receive a message from Sebby or House.\n**DO NOT LEAVE HEBBY OR DISABLE DIRECT MESSAGES OR YOU WILL NOT BE ACCEPTED**",
+	    description: "Your mod application is pending approval. Please do not submit another until you receive confirmation that your application has been accepted/denied.\n**DO NOT LEAVE HEBBY OR DISABLE DIRECT MESSAGES OR YOU WILL NOT BE ACCEPTED**",
 	    color: 15051
     },files:[
     	    "https://i.imgur.com/sOT5keR.png"
@@ -271,7 +272,7 @@ client.on('message', message => {try{
 	if (file.substr(file.length-4) != ".lua" && file.substr(file.length-4) != ".txt"){
 	  message.reply("Uploaded file must be a `.txt` or `.lua` file.")
 	  .then(mesg => {
-            setTimeout(function(){
+        setTimeout(function(){
 	    	mesg.delete();
 	    }, 5000);
 	  });
