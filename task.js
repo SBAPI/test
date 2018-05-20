@@ -7,6 +7,12 @@ var client = new Discord.Client();
 const USER_AGENT = process.env.USER_AGENT;
 const BOT_KEY = process.env.BOT_KEY;
 const API_KEY = process.env.API_KEY;
+function numToEmoji(input){
+	var nums = {"0":":zero:","1":":one:","2":":two:","3":":three:","4":":four:","5":":five:","6":":six:","7":":seven:","8":":eight:","9":":nine:"};
+	return input.replace(/[0-9]/g, function (x) {
+            return nums[x];
+        });
+}
 function doNightlyUpdate(skap){
   var data = undefined;
   request(API_KEY, function(error, response, body){
@@ -14,32 +20,32 @@ function doNightlyUpdate(skap){
     var _fields = [
       {
         name: "⭐ Favorites",
-        value: data.FavoritedCount,
+        value: numToEmoji(data.FavoritedCount),
         inline: true
       },
       {
         name: "👍 Likes",
-        value: data.TotalUpVotes,
+        value: numToEmoji(data.TotalUpVotes),
         inline: true
       },
       {
         name: "👎 Dislikes",
-        value: data.TotalDownVotes,
+        value: numToEmoji(data.TotalDownVotes),
         inline: true
       },
       {
         name: "👁️ Plays",
-        value: data.VisitedCount,
+        value: numToEmoji(data.VisitedCount),
         inline: true
       },
       {
         name: "👨 Online",
-        value: data.OnlineCount,
+        value: numToEmoji(data.OnlineCount),
         inline: true
       },
       {
         name: "⬆️ Last Updated",
-        value: data.Updated,
+        value: numToEmoji(data.Updated),
         inline: true
       }
     ]
@@ -106,32 +112,32 @@ client.on('ready', () => {
 	      var _fields = [
           {
             name: "⭐ Favorites",
-            value: data.FavoritedCount,
+            value: numToEmoji(data.FavoritedCount),
             inline: true
           },
           {
             name: "👍 Likes",
-            value: data.TotalUpVotes,
+            value: numToEmoji(data.TotalUpVotes),
             inline: true
           },
           {
             name: "👎 Dislikes",
-            value: data.TotalDownVotes,
+            value: numToEmoji(data.TotalDownVotes),
             inline: true
           },
           {
             name: "👁️ Plays",
-            value: data.VisitedCount,
+            value: numToEmoji(data.VisitedCount),
             inline: true
           },
           {
             name: "👨 Online",
-            value: data.OnlineCount,
+            value: numToEmoji(data.OnlineCount),
             inline: true
           },
           {
             name: "⬆️ Last Updated",
-            value: data.Updated,
+            value: numToEmoji(data.Updated),
             inline: true
           }
         ]
