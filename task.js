@@ -9,7 +9,7 @@ const BOT_KEY = process.env.BOT_KEY;
 const API_KEY = process.env.API_KEY;
 function numToEmoji(input){
 	var nums = {"0":":zero:","1":":one:","2":":two:","3":":three:","4":":four:","5":":five:","6":":six:","7":":seven:","8":":eight:","9":":nine:"};
-	return input.replace(/[0-9]/g, function (x) {
+	return `${input}`.replace(/[0-9]/g, function (x) {
             return nums[x];
         });
 }
