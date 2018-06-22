@@ -53,7 +53,7 @@ function doNightlyUpdate(skap){
       title: "Nightly Update",
       color: 3394815,
       fields: _fields,
-      timestamp: unix
+      timestamp: new Date()
     }
     var unix = Math.round(+new Date()/1000);
     client.guilds.get("395371039779192842").channels.find("name", "news").send({content: "@here **Nightly Update**", embed: _embed});
@@ -144,9 +144,7 @@ client.on('ready', () => {
         stat.edit({embed:{
           title: "Live Stats",
           fields: _fields,
-          footer: {
-            text: "Last updated at "+timeStamp.tHour+":"+timeStamp.tMinute+":"+timeStamp.tSeconds+" EST"
-          }
+      	  timestamp: new Date()
         }});
       })
     }, 5000);
