@@ -5,6 +5,8 @@ const request = require('request');
 var Discord = require('discord.js');
 var client = new Discord.Client();
 var playlist = [];
+var senders = [];
+var connection = null;
 var voice = null;
 function youtubeSearchEngine(query){
     return new Promise(function(fulfill, reject){
