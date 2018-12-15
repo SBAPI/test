@@ -73,7 +73,8 @@ client.on('message', message => {try{
 	      return;
 	    })
 	    .catch((err) => {
-		    message.reply(" I can't connect to this channel!");
+		    console.log(err);
+		    message.reply(" I can't connect to this channel!\n```\n" + err + "\n```");
 		    return;
 	    });
 	  } else {
