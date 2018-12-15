@@ -12,6 +12,7 @@
     "request": "2.81.0",
     "cheerio": "0.22.0",
     "dblapi.js": "1.2.1",
+    "node-opus": "0.3.0",
     "ffmpeg-binaries": "3.2.2-3",
     "html-to-json": "0.6.0"
   }
