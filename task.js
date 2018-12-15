@@ -5,6 +5,7 @@ const request = require('request');
 var Discord = require('discord.js');
 var client = new Discord.Client();
 var playlist = [];
+var voice = null;
 function youtubeSearchEngine(query){
     return new Promise(function(fulfill, reject){
         request("https://www.youtube.com/results?search_query=" + encodeURIComponent(query), function(e, r, b){
