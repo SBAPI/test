@@ -2,6 +2,7 @@ var tos = `
 Error: The TOS file for this guild is corrupted and cannot be read from
 `
 const request = require('request');
+const ytdl = require('ytdl-core');
 var Discord = require('discord.js');
 var client = new Discord.Client();
 var playlist = [];
