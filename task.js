@@ -4,7 +4,6 @@ Error: The TOS file for this guild is corrupted and cannot be read from
 const request = require('request');
 const ytdl = require('ytdl-core');
 const cheerio = require('cheerio');
-const request = require('request');
 var Discord = require('discord.js');
 var client = new Discord.Client();
 var playlist = [];
